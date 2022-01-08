@@ -1,23 +1,23 @@
 const parallelPromise = (id) => {
-  const promise1 = new Promise((resolve, reject) => {
+  const promise1 = new Promise((resolve) => {
     setTimeout(() => {
       resolve({ id: id, gitHubRepoUsername: "techstackmedia" });
     }, 1000);
   });
 
-  const promise2 = new Promise((resolve, reject) => {
+  const promise2 = new Promise((resolve) => {
     setTimeout(() => {
       resolve(["repo1", "repo2", "repo3"]);
     }, 1000);
   });
 
-  const promise3 = new Promise((resolve, reject) => {
+  const promise3 = new Promise((resolve) => {
     setTimeout(() => {
       resolve(["First commit", "Last commit"]);
     }, 1000);
   });
 
-  const promise4 = new Promise((resolve, reject) => {
+  const promise4 = new Promise((resolve) => {
     setTimeout(() => {
       resolve(["This is a callback hell", "This is a christmas tree problem"]);
     }, 1000);
