@@ -1,6 +1,6 @@
 const getUser = (id, callback) => {
   setTimeout(() => {
-    callback({ id: id, gitHubRepo: "techstackmedia" });
+    callback({ id: id, gitHubUsername: "techstackmedia" });
   }, 1000);
 };
 
@@ -38,7 +38,7 @@ const getRepoFunc = (repo) => {
 
 const getUserFunc = (user) => {
   console.log(user);
-  getRepository(user.gitHubRepo, getRepoFunc);
+  getRepository(user.gitHubUsername, getRepoFunc);
 };
 
 getUser(1, getUserFunc);

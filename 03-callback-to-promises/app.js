@@ -1,7 +1,7 @@
 const getUser = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve({ id: id, gitHubRepo: "techstackmedia" });
+      resolve({ id: id, gitHubUsername: "techstackmedia" });
     }, 1000);
   });
 };
@@ -31,7 +31,7 @@ const callbackHell = (comment) => {
 };
 
 getUser(1)
-  .then((user) => getRepository(user.gitHubRepo))
+  .then((user) => getRepository(user.gitHubUsername))
   .then((repo) => getCommit(repo[0]))
   .then((commit) => callbackHell(commit))
   .then((comment) => console.log(comment))

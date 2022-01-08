@@ -1,7 +1,7 @@
 const getUser = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve({ id: id, gitHubRepo: "techstackmedia" });
+      resolve({ id: id, gitHubUsername: "techstackmedia" });
     }, 1000);
   });
 };
@@ -33,12 +33,12 @@ const callbackHell = (comment) => {
 const displayMessage = async () => {
   try {
     const user = await getUser(1);
-    const repo = await getRepository(user.gitHubRepo);
+    const repo = await getRepository(user.gitHubUsername);
     const commit = await getCommit(repo[0]);
     const comment = await callbackHell(commit);
     console.log(user);
     console.log(repo);
-    console.log(commit)
+    console.log(commit);
     console.log(comment);
   } catch (err) {
     console.error("Error occured");

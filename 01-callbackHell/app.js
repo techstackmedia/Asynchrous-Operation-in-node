@@ -1,6 +1,6 @@
 const getUser = (id, callback) => {
   setTimeout(() => {
-    callback({ id: id, gitHubRepo: "techstackmedia" });
+    callback({ id: id, gitHubUsername: "techstackmedia" });
   }, 1000);
 };
 
@@ -23,7 +23,7 @@ const callbackHell = (comment, callback) => {
 };
 
 getUser(1, (user) => {
-  getRepository(user.gitHubRepo, (repo) => {
+  getRepository(user.gitHubUsername, (repo) => {
     getCommit(repo[0], (commit) => {
       callbackHell(commit[1], (comment) => {
         // console.log(`${commit[1]} of ${repo[0]}`);
