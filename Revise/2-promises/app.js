@@ -1,6 +1,7 @@
-const gitHubRegistry = false;
+const isGithubRepository = Math.floor(Math.random() * 2) ? true : false;
+console.log(isGithubRepository);
 
-if (gitHubRegistry) {
+if (isGithubRepository) {
   const getUser = (id) => {
     return new Promise((resolve) => {
       setTimeout(() => {

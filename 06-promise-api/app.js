@@ -1,9 +1,10 @@
-const isGithubRepository = false;
+const isGithubRepository = Math.floor(Math.random() * 2) ? true : false;
+console.log(isGithubRepository);
 
 const getUser = (id) => {
   if (isGithubRepository) {
     setTimeout(() => {
-      console.log("Kick off an async operation...");
+      console.log("Kick off an asyn operation...");
 
       const resolvedPromise = Promise.resolve({
         id: id,
@@ -13,7 +14,7 @@ const getUser = (id) => {
     }, 1000);
   } else {
     setTimeout(() => {
-      console.log("Kick off an async operation...");
+      console.log("Kick off an asyn operation...");
 
       const rejectedPromise = Promise.reject(new Error("Error Message"));
       rejectedPromise.catch((err) => console.error(err.message));
