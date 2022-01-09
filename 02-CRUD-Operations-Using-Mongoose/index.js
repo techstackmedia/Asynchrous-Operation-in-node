@@ -1,45 +1,7 @@
-const mongoose = require("mongoose");
-// const Couser = require("./Course");
-const dotenv = require("dotenv");
-dotenv.config();
+const Course = require("./Course");
 
-mongoose
-  .connect(
-    `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.n5uqo.mongodb.net/${process.env.DATABASE}`
-  )
-  .then(() => console.log("Connected to mongodb..."))
-  .catch((err) => console.error("Could not conect to mongoDB...", err));
-
-const courseSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    // immutable: true,
-    required: true,
-  },
-  author: String,
-  tags: [
-    {
-      type: String,
-      lowercase: true,
-      minlength: 3,
-    },
-  ],
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  age: {
-    type: Number,
-    min: 18,
-    // validate: (v) => v % 2 === 0,
-  },
-  isPublished: Boolean,
-});
-
-// compile schema into model
 const createCourse = async () => {
   try {
-    const Course = mongoose.model("Course", courseSchema);
     const course = new Course({
       // Course.create({...})
       name: "JavaScript Mastery",
@@ -70,7 +32,6 @@ const createCourse = async () => {
 
 createCourse();
 
-const Course = mongoose.model("User", courseSchema);
 Course.find({ author: "Bello Osagie Noah", isPublished: true })
   .limit(10)
   .sort({ name: 1 })
